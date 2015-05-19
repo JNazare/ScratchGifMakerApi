@@ -3,7 +3,7 @@ from werkzeug import secure_filename
 import os
 
 UPLOAD_FOLDER = '/Users/Juliana/Desktop'
-ALLOWED_EXTENSIONS = set(['mov'])
+ALLOWED_EXTENSIONS = set(['MOV'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -17,7 +17,7 @@ def allowed_file(filename):
 def upload_file():
     if request.method == "POST":
         file = request.files["file"]
-        if file:
+        if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
             return "DONE!"
