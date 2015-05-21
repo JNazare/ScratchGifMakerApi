@@ -4,8 +4,8 @@ import os
 from moviepy.editor import *
 from PIL import Image
 
-UPLOAD_FOLDER = '~'
-GIF_FILE_PATH = '~/uploaded.gif'
+UPLOAD_FOLDER = '/Users/Juliana/Desktop'
+GIF_FILE_PATH = '/Users/Juliana/Desktop/test.gif'
 ALLOWED_EXTENSIONS = set(['MOV'])
 
 app = Flask(__name__)
