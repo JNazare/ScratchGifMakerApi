@@ -18,7 +18,7 @@ def allowed_file(filename):
 
 def make_gif(filename):
     clip = (VideoFileClip(filename).rotate(-90).resize(0.5))
-    clip.write_gif(GIF_FILE_PATH, fps=1)
+    clip.write_gif(GIF_FILE_PATH, fps=10)
     with open(GIF_FILE_PATH, "rb") as f:
         gif = f.read()
         encoded_gif = gif.encode("base64")
@@ -37,7 +37,7 @@ def upload_file():
             gif = make_gif(path_on_comp)
             return gif
     
-    return 'Hello World!'
+    return 'Hello Video Uploader!'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
